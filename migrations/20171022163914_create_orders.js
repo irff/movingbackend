@@ -5,7 +5,11 @@ exports.up = (knex) => {
 		table.uuid('user_id').notNullable().references('users.id').index()
 		table.uuid('library_id').notNullable().references('libraries.id').index()
 		table.uuid('book_id').notNullable().references('books.id')
-		table.text('address').notNullable()
+		
+		table.float('lat')
+		table.float('lng')
+		table.text('address')
+		
 		table.enu('status', [
 			'pending',
 			'confirmed',

@@ -3,9 +3,9 @@ exports.up = (knex) => {
   	.createTable('libraries', (table) => {
 		table.uuid('id').notNullable().primary()
 		table.uuid('user_id').notNullable().unique().references('users.id')
-		table.float('latitude').notNullable()
-		table.float('longitude').notNullable()
-		table.text('address').notNullable()
+		table.float('lat')
+		table.float('lng')
+		table.text('address')
 
 		table.timestamps()
 	})
