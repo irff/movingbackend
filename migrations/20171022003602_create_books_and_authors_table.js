@@ -15,8 +15,8 @@ exports.up = (knex) => {
   		table.string('name', 255).notNullable().index()
   	})
   	.createTable('authors_books', (table) => {
-  		table.uuid('author_id').references('authors.id')
-  		table.uuid('book_id').references('books.id')
+  		table.uuid('author_id').notNullable().references('authors.id')
+  		table.uuid('book_id').notNullable().references('books.id')
 
   		table.index(['author_id', 'book_id'])
   	})
