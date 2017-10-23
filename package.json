@@ -1,7 +1,7 @@
 {
-  "name": "node-starter",
+  "name": "tml-backend",
   "version": "1.0.0",
-  "description": "Node.js API server starter using Koa2 and Bookshelf",
+  "description": "The Moving Library (Back-end)",
   "main": "index.js",
   "author": "Lorenzo Piccoli Módolo <lorenzopicoli@me.com>",
   "license": "MIT",
