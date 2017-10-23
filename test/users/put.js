@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { user, admin } from '../utils'
-import { User } from 'models/users'
+import User from 'models/users'
 
 module.exports = async (request, context) => {
   describe('PUT /users/me', () => {

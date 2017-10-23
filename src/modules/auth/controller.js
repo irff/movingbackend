@@ -1,5 +1,5 @@
 import passport from 'koa-passport'
-import { User } from 'models/users'
+import User from 'models/users'
 import { fbAuthenticate, fbSignup } from './helpers'
 
 /**

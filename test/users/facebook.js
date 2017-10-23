@@ -1,4 +1,4 @@
-import { User } from 'models/users'
+import User from 'models/users'
 import { fbUser, user, getFbAccessData } from '../utils'
 import { expect } from 'chai'
 

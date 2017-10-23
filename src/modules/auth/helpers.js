@@ -1,4 +1,4 @@
-import { User } from 'models/users'
+import User from 'models/users'
 
 export async function fbAuthenticate(user, facebookToken, facebookId) {
   user.set({

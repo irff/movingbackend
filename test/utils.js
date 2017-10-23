@@ -37,13 +37,14 @@ export async function getFbAccessData() {
   graph.setAccessToken(access_token)
   // Get test users
   const { data } = await graph.getAsync(`/${process.env.FACEBOOK_ID}/accounts/test-users`)
+
   // User access token and ID
   const { id } = data[0]
   const token = data[0].access_token
 
   graph.setAccessToken(token)
-  // Get the user's email (need to know the email for the liking test)
-  const me = await graph.getAsync(`/me?fields=email`)
+  // Get the user's email (need to know the email for the linking test)
+  const me = await graph.getAsync('/me?fields=email')
 
   return { token, id, email: me.email }
 }

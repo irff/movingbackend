@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { User } from 'models/users'
+import User from 'models/users'
 import { user, admin } from '../utils'
 
 module.exports = (request, context) => {

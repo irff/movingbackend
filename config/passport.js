@@ -1,4 +1,4 @@
-import { User } from 'models/users'
+import User from 'models/users'
 import { Strategy as LocalStrategy } from 'passport-local'
 import FacebookTokenStrategy from 'passport-facebook-token'
 import passport from 'koa-passport'

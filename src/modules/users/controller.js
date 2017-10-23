@@ -1,4 +1,4 @@
-import { User } from 'models/users'
+import User from 'models/users'
 import Promise from 'bluebird'
 import { isAuthenticated, restrictToAdmin } from 'middleware/validators'
 const graph = Promise.promisifyAll(require('fbgraph'))

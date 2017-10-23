@@ -10,7 +10,7 @@ import rp from 'request-promise'
 const bcrypt = Promise.promisifyAll(require('bcrypt'))
 const { aws: { Bucket } } = config
 
-export const User = Bookshelf.Model.extend({
+const User = Bookshelf.Model.extend({
   tableName: 'users',
   hasTimestamps: true,
   hidden: ['password', 'facebook_token'],
@@ -85,5 +85,20 @@ export const User = Bookshelf.Model.extend({
     const [Key] = re.exec(avatarString)
     const options = { Bucket, Key }
     return S3.deleteObjectAsync(options)
-  }
+  },
+
+  library() {
+    return this.hasOne('Library')
+  },
+
+  lends() {
+    return this.hasMany('Order').through('Library')
+  },
+
+  borrows() {
+    return this.hasMany('Order')
+  },
+
 })
+
+export default Bookshelf.model('User', User);
