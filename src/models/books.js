@@ -1,6 +1,9 @@
 import Bookshelf from 'db/bookshelf'
 import uuidV4 from 'uuid/v4'
 
+// register required model
+require('./libraries')
+
 export const Author = Bookshelf.model('Author', {
   tableName: 'authors',
   idAttribute: 'id',

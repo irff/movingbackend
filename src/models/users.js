@@ -7,6 +7,11 @@ import S3 from 'lib/aws'
 import config from 'config'
 import rp from 'request-promise'
 
+// register required model
+require('./libraries')
+require('./orders')
+
+
 const bcrypt = Promise.promisifyAll(require('bcrypt'))
 const { aws: { Bucket } } = config
 

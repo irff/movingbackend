@@ -12,7 +12,7 @@ exports.up = (knex) => {
   	.createTable('book_records', (table) => {
   		table.uuid('library_id').notNullable().references('libraries.id')
   		table.uuid('book_id').notNullable().references('books.id')
-  		table.enu('status', ['available', 'unavailable'])
+  		table.enu('status', ['available', 'unavailable']).notNullable().defaultTo('available')
   		
   		table.timestamps()
   		table.index(['library_id', 'book_id'])
