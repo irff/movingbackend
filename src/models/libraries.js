@@ -36,10 +36,12 @@ export const Library = Bookshelf.model('Library', {
   },
 
   bookRecords() {
-    return this.hasMany('BookRecords')
+    return this.hasMany('BookRecord')
   },
 
   orders() {
-    return this.hasMany('Orders')
+    return this.hasMany('Order')
   },
 })
+
+export default Library;

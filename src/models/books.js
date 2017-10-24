@@ -40,6 +40,8 @@ export const Book = Bookshelf.model('Book', {
   },
 
   bookRecords() {
-    return this.hasMany('BookRecords')
+    return this.hasMany('BookRecord')
   },
 })
+
+export default Book;

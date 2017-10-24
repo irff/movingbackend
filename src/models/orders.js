@@ -30,3 +30,5 @@ export const Order = Bookshelf.model('Order', {
     return this.belongsTo('User').through('Library')
   },
 })
+
+export default Order;
