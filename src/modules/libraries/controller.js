@@ -16,7 +16,6 @@ export async function get(ctx, next) {
     // Invalid uuid
     if (err.code === '22P02') ctx.throw(400)
 
-    console.log(err)
     ctx.throw(500)
   }
 

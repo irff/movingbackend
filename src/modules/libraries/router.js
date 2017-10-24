@@ -13,18 +13,18 @@ export default [
   },
   {
     method: 'GET',
-    route: '/:id',
-    handlers: [
-      library.get
-    ]
-  },
-  {
-    method: 'GET',
     route: '/me',
     handlers: [
       isAuthenticated,
       setUserIdFromToken,
       library.getUserLibrary,
+    ]
+  },
+  {
+    method: 'GET',
+    route: '/:id',
+    handlers: [
+      library.get
     ]
   },
 ]
