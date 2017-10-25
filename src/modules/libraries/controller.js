@@ -5,7 +5,7 @@ export async function get(ctx, next) {
   try {
     const library = await Library.where('id', ctx.params.id).fetch({
       require: true,
-      withRelated: ['bookRecords.books.authors'],
+      withRelated: ['bookRecords.book'],
     })
 
     ctx.body = { library }
@@ -26,7 +26,7 @@ export async function getUserLibrary(ctx, next) {
   try {
     const library = await Library.where('user_id', ctx.params.id).fetch({
       require: true,
-      withRelated: ['bookRecords.books.authors'],
+      withRelated: ['bookRecords.book'],
     })
 
     ctx.body = { library }

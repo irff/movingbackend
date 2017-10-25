@@ -7,30 +7,17 @@ exports.seed = (knex, Promise) => {
     const bookIsbn = '0000000000000';
     const authorId = uuidV4();
     const libraryId = uuidV4();
+    const recordId = uuidV4();
 
     return knex('books').insert([
         {
           isbn: bookIsbn,
           title: 'Adventure of Lorem & Ipsum',
+          authors: 'Sid Ahmed',
+          category: 'Fiction',
           language: 'en',
         }
       ])
-      .then(() =>
-        knex('authors').insert([
-          {
-            id: authorId,
-            name: 'Sid Ahmed'
-          }
-        ])
-      )
-      .then(() =>
-        knex('authors_books').insert([
-          {
-            book_isbn: bookIsbn,
-            author_id: authorId,
-          }
-        ])
-      )
       .then(() =>
         knex('libraries').insert([
           {
@@ -44,6 +31,7 @@ exports.seed = (knex, Promise) => {
       .then(() =>
         knex('book_records').insert([
           {
+            id: recordId,
             book_isbn: bookIsbn,
             library_id: libraryId,
           }

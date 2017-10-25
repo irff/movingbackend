@@ -10,12 +10,13 @@ exports.up = (knex) => {
 		table.timestamps()
 	})
   	.createTable('book_records', (table) => {
+      table.uuid('id').notNullable().primary()
   		table.uuid('library_id').notNullable().references('libraries.id')
   		table.string('book_isbn').notNullable().references('books.isbn')
   		table.enu('status', ['available', 'unavailable']).notNullable().defaultTo('available')
   		
   		table.timestamps()
-  		table.index(['library_id', 'book_isbn'])
+  		table.unique(['library_id', 'book_isbn'])
   	})
 }
 

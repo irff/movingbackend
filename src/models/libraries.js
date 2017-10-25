@@ -8,12 +8,22 @@ require('./books')
 
 export const BookRecord = Bookshelf.model('BookRecord', {
   tableName: 'book_records',
+  idAttribute: 'id',
+  hasTimestamps: true,
+
+  initialize() {
+    this.on('creating', this.generateUUID, this)
+  },
+
+  generateUUID() {
+    this.set('id', uuidV4())
+  },
 
   library() {
     return this.belongsTo('Library')
   },
 
-  books() {
+  book() {
     return this.belongsTo('Book')
   },
 })
