@@ -17,6 +17,9 @@
     "type": "git",
     "url": "https://github.com/lorenzopicoli/node-api-starter"
   },
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "aws-sdk": "^2.3.17",
     "babel-core": "^6.22.1",
