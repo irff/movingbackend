@@ -4,7 +4,7 @@ exports.up = (knex) => {
 		table.uuid('id').notNullable().primary()
 		table.uuid('user_id').notNullable().references('users.id').index()
 		table.uuid('library_id').notNullable().references('libraries.id').index()
-		table.uuid('book_id').notNullable().references('books.id')
+		table.string('book_isbn').notNullable().references('books.isbn')
 		
 		table.float('lat')
 		table.float('lng')

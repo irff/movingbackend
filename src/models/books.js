@@ -24,16 +24,8 @@ export const Author = Bookshelf.model('Author', {
 
 export const Book = Bookshelf.model('Book', {
   tableName: 'books',
-  idAttribute: 'id',
+  idAttribute: 'isbn',
   hasTimestamps: true,
-
-  initialize() {
-    this.on('creating', this.generateUUID, this)
-  },
-
-  generateUUID() {
-    this.set('id', uuidV4())
-  },
 
   authors() {
     return this.belongsToMany('Author')

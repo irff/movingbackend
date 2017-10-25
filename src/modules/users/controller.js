@@ -47,13 +47,9 @@ export async function create(ctx) {
   }
 
   const user = User.forge(ctx.request.body)
-  const library = Library.forge({
-    user_id: user.id
-  })
 
   try {
     await user.save()
-    await library.save()
     await user.refresh()
   } catch (err) {
     ctx.throw(422, err.detail)

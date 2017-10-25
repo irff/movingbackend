@@ -4,13 +4,13 @@ exports.seed = (knex, Promise) => {
   
   return knex('users').select('id').where('role', 'admin').then(row => {
     const { id: adminId } = row[0];
-    const bookId = uuidV4();
+    const bookIsbn = '0000000000000';
     const authorId = uuidV4();
     const libraryId = uuidV4();
 
     return knex('books').insert([
         {
-          id: bookId,
+          isbn: bookIsbn,
           title: 'Adventure of Lorem & Ipsum',
           language: 'en',
         }
@@ -26,7 +26,7 @@ exports.seed = (knex, Promise) => {
       .then(() =>
         knex('authors_books').insert([
           {
-            book_id: bookId,
+            book_isbn: bookIsbn,
             author_id: authorId,
           }
         ])
@@ -44,7 +44,7 @@ exports.seed = (knex, Promise) => {
       .then(() =>
         knex('book_records').insert([
           {
-            book_id: bookId,
+            book_isbn: bookIsbn,
             library_id: libraryId,
           }
         ])

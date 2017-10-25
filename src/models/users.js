@@ -8,7 +8,7 @@ import config from 'config'
 import rp from 'request-promise'
 
 // register required model
-require('./libraries')
+import Library from './libraries';
 require('./orders')
 
 
@@ -25,7 +25,13 @@ const User = Bookshelf.Model.extend({
     this.on('saving', this.hashPassword, this)
     this.on('creating', this.generateUUID, this)
     this.on('creating', this.setAvi, this)
+    this.on('created', this.createLibrary, this)
     this.on('destroying', this.cleanAvi, this)
+  },
+
+  async createLibrary() {
+    const user_id = this.get('id')
+    await Library.forge({ user_id }).save()
   },
 
   generateToken() {
