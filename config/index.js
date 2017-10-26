@@ -21,7 +21,7 @@ export default {
   facebook: {
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
-    profileFields: ['name', 'email', 'friends', 'picture.type(large)']
+    profileFields: ['name', 'email', 'friends', 'picture.width(640)']
     // passReqToCallback: true
   }
 }

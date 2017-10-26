@@ -2,7 +2,7 @@ import Bookshelf from 'db/bookshelf'
 import uuidV4 from 'uuid/v4'
 
 export const Order = Bookshelf.model('Order', {
-  tableName: 'libraries',
+  tableName: 'orders',
   idAttribute: 'id',
   hasTimestamps: true,
 
