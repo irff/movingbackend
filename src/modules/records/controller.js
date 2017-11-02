@@ -61,7 +61,7 @@ export async function search(ctx, next) {
           .orWhereRaw('lower(authors) like ?', [`%${(ctx.request.query.q || '').toLowerCase()}%`])
           .orWhereRaw('lower(category) = ?', [(ctx.request.query.q || '')])
       })
-      .fetchAll({ withRelated: ['book']})
+      .fetchAll({ withRelated: ['book', 'library.user']})
 
     ctx.status = 200
     ctx.body = { records }
