@@ -20,6 +20,7 @@ export async function post(ctx, next) {
 
 
   } catch (err) {
+    console.log(err)
     ctx.throw(500)
   }
 

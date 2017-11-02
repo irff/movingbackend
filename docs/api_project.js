@@ -1,1 +1,0 @@
-define({  "name": "node-starter",  "version": "1.0.0",  "description": "Node.js API server starter using Koa2 and Bookshelf",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2017-03-19T03:46:13.535Z",    "url": "http://apidocjs.com",    "version": "0.17.5"  }});
