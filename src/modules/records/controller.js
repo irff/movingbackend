@@ -51,3 +51,18 @@ export async function del(ctx, next) {
     ctx.throw(500)
   }
 }
+
+export async function search(ctx, next) {
+  try {
+    const records = await BookRecord
+      .where('title', 'like', `%${ctx.request.query.q}%`)
+      .orWhere('authors', 'like', `%${ctx.request.query.q}%`)
+      .fetchAll()
+
+    ctx.status = 200
+    ctx.body = { records }
+  } catch (err) {
+    console.log(err)
+    ctx.throw(500)
+  }
+}

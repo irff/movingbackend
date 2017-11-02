@@ -1,5 +1,5 @@
 import { isAuthenticated, restrictToAdmin, setUserIdFromToken } from 'middleware/validators'
-import * as record from './controller'
+import * as record, {search} from './controller'
 
 export const baseUrl = '/records'
 
@@ -28,4 +28,11 @@ export default [
       record.del,
     ]
   },
+  {
+    method: 'GET',
+    route: '/',
+    handlers: [
+      record.search,
+    ],
+  }
 ]
