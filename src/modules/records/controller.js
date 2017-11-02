@@ -55,9 +55,13 @@ export async function del(ctx, next) {
 export async function search(ctx, next) {
   try {
     const records = await BookRecord
-      .where('title', 'like', `%${ctx.request.query.q}%`)
-      .orWhere('authors', 'like', `%${ctx.request.query.q}%`)
-      .fetchAll()
+      .query(qb => {
+        qb.innerJoin('books', 'book_records.book_isbn', 'books.isbn');
+        qb.whereRaw('lower(title) like ?', [`%${(ctx.request.query.q || '').toLowerCase()}%`])
+          .orWhereRaw('lower(authors) like ?', [`%${(ctx.request.query.q || '').toLowerCase()}%`])
+          .orWhereRaw('lower(category) = ?', [(ctx.request.query.q || '')])
+      })
+      .fetchAll({ withRelated: ['book']})
 
     ctx.status = 200
     ctx.body = { records }

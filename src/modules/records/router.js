@@ -1,5 +1,5 @@
 import { isAuthenticated, restrictToAdmin, setUserIdFromToken } from 'middleware/validators'
-import * as record, {search} from './controller'
+import * as record from './controller'
 
 export const baseUrl = '/records'
 
