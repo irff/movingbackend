@@ -69,7 +69,7 @@ export async function getUserOrder(ctx, next) {
   try {
     const user = await User.where('id', ctx.body.me.id).fetch({
       required: true,
-      withRelated: ['borrows.book', 'borrows.library.user', 'lends.book', 'lends.library.user'],
+      withRelated: ['borrows.book', 'borrows.library.user', 'lends.book', 'lends.library.user', 'borrows.user', 'lends.user'],
     })
     ctx.body = { lends: user.related('lends'), borrows: user.related('borrows') }
   } catch (err) {
